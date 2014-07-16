@@ -129,7 +129,7 @@
             // 
             this.PickStart.Location = new System.Drawing.Point(263, 252);
             this.PickStart.Maximum = new decimal(new int[] {
-            2000,
+            1000,
             0,
             0,
             0});
@@ -142,7 +142,7 @@
             this.PickStart.Size = new System.Drawing.Size(120, 22);
             this.PickStart.TabIndex = 38;
             this.PickStart.Value = new decimal(new int[] {
-            1000,
+            50,
             0,
             0,
             0});

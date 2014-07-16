@@ -28,7 +28,7 @@ module Solution =
         let yieldsFirst = Seq.fold (fun a b -> a * (1m + b) ) 1m (Seq.take fullYears bond.Rates)
         let yieldsFull = Seq.fold (fun a b -> a * (1m + b) ) 1m bond.Rates
         let yieldsSecond = yieldsFull - yieldsFirst
-        (yieldsFirst - discount*amount, yieldsSecond + discount*amount)
+        new Tuple<decimal,decimal>(yieldsFirst - discount*amount, yieldsSecond + discount*amount)
         
    
 module Tools =

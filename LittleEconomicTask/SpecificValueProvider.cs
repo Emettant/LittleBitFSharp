@@ -25,6 +25,7 @@ namespace LittleEconomicTask
         }
         public Tuple<decimal, decimal> GetValue()
         {
+            //return new Tuple<decimal, decimal>(2m, 3m);
             return MyFunctionalLibrary.Solution.CalcProfits(
                 new Bond(
                     IssuanceTime,

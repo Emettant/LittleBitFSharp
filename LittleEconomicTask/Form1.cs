@@ -24,6 +24,10 @@ namespace LittleEconomicTask
             PickRate.SelectedIndex = 0;
         }
 
+        decimal PickStartValue { get { return PickStart.Value / 1000; } }
+        double PickSpeedValue { get { return (double)PickSpeed.Value / 1000; } }
+        decimal Discount { get { return DiscountBox.Value / 100; } }
+
         private void CalcButton_Click(object sender, EventArgs e)
         {
             IValueProvider provider;
@@ -33,21 +37,21 @@ namespace LittleEconomicTask
                 EndTime.Value,
                 AmountBox.Value,
                 (int)MaturityBox.Value,
-                DiscountBox.Value,
-                PickStart.Value);
+                Discount,
+                PickStartValue);
             else
                 provider = new ExponentialRateValueProvider(
                 StartTime.Value,
                 EndTime.Value,
                 AmountBox.Value,
                 (int)MaturityBox.Value,
-                DiscountBox.Value,
-                PickStart.Value,
-                (double)PickSpeed.Value
+                Discount,
+                PickStartValue,
+                PickSpeedValue
                 );
 
             var t = provider.GetValue();
-            ResultBox.Text = t.Item1.ToString() + ", " + t.Item2.ToString();
+            ResultBox.Text = "1: " + t.Item1.ToString() + ", \n2: " + t.Item2.ToString();
 
         }
 
