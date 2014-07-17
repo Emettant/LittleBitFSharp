@@ -36,9 +36,6 @@
             this.ResultBox = new System.Windows.Forms.Label();
             this.PickStart = new System.Windows.Forms.NumericUpDown();
             this.StartRateHelper = new System.Windows.Forms.Label();
-            this.SpeedRateHelper = new System.Windows.Forms.Label();
-            this.PickSpeed = new System.Windows.Forms.NumericUpDown();
-            this.SpeedRateHeader = new System.Windows.Forms.Label();
             this.StartRateHeader = new System.Windows.Forms.Label();
             this.PickRate = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,7 +48,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.AmountBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DiscountBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PickStart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PickSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaturityBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,7 +115,7 @@
             // ResultBox
             // 
             this.ResultBox.AutoSize = true;
-            this.ResultBox.Location = new System.Drawing.Point(166, 361);
+            this.ResultBox.Location = new System.Drawing.Point(171, 324);
             this.ResultBox.Name = "ResultBox";
             this.ResultBox.Size = new System.Drawing.Size(170, 17);
             this.ResultBox.TabIndex = 39;
@@ -155,46 +151,6 @@
             this.StartRateHelper.Size = new System.Drawing.Size(58, 17);
             this.StartRateHelper.TabIndex = 37;
             this.StartRateHelper.Text = "0.001 x ";
-            // 
-            // SpeedRateHelper
-            // 
-            this.SpeedRateHelper.AutoSize = true;
-            this.SpeedRateHelper.Location = new System.Drawing.Point(199, 307);
-            this.SpeedRateHelper.Name = "SpeedRateHelper";
-            this.SpeedRateHelper.Size = new System.Drawing.Size(58, 17);
-            this.SpeedRateHelper.TabIndex = 36;
-            this.SpeedRateHelper.Text = "0.001 x ";
-            // 
-            // PickSpeed
-            // 
-            this.PickSpeed.Location = new System.Drawing.Point(263, 305);
-            this.PickSpeed.Maximum = new decimal(new int[] {
-            2000,
-            0,
-            0,
-            0});
-            this.PickSpeed.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.PickSpeed.Name = "PickSpeed";
-            this.PickSpeed.Size = new System.Drawing.Size(120, 22);
-            this.PickSpeed.TabIndex = 35;
-            this.PickSpeed.Value = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            // 
-            // SpeedRateHeader
-            // 
-            this.SpeedRateHeader.AutoSize = true;
-            this.SpeedRateHeader.Location = new System.Drawing.Point(213, 285);
-            this.SpeedRateHeader.Name = "SpeedRateHeader";
-            this.SpeedRateHeader.Size = new System.Drawing.Size(111, 17);
-            this.SpeedRateHeader.TabIndex = 34;
-            this.SpeedRateHeader.Text = "Speed of growth";
             // 
             // StartRateHeader
             // 
@@ -282,7 +238,7 @@
             // 
             // CalcButton
             // 
-            this.CalcButton.Location = new System.Drawing.Point(38, 356);
+            this.CalcButton.Location = new System.Drawing.Point(43, 319);
             this.CalcButton.Name = "CalcButton";
             this.CalcButton.Size = new System.Drawing.Size(98, 27);
             this.CalcButton.TabIndex = 25;
@@ -294,7 +250,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 441);
+            this.ClientSize = new System.Drawing.Size(425, 383);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.AmountBox);
             this.Controls.Add(this.label5);
@@ -303,9 +259,6 @@
             this.Controls.Add(this.ResultBox);
             this.Controls.Add(this.PickStart);
             this.Controls.Add(this.StartRateHelper);
-            this.Controls.Add(this.SpeedRateHelper);
-            this.Controls.Add(this.PickSpeed);
-            this.Controls.Add(this.SpeedRateHeader);
             this.Controls.Add(this.StartRateHeader);
             this.Controls.Add(this.PickRate);
             this.Controls.Add(this.label1);
@@ -320,7 +273,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.AmountBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DiscountBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PickStart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PickSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaturityBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -337,9 +289,6 @@
         private System.Windows.Forms.Label ResultBox;
         private System.Windows.Forms.NumericUpDown PickStart;
         private System.Windows.Forms.Label StartRateHelper;
-        private System.Windows.Forms.Label SpeedRateHelper;
-        private System.Windows.Forms.NumericUpDown PickSpeed;
-        private System.Windows.Forms.Label SpeedRateHeader;
         private System.Windows.Forms.Label StartRateHeader;
         private System.Windows.Forms.ComboBox PickRate;
         private System.Windows.Forms.Label label1;

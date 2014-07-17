@@ -14,18 +14,15 @@ namespace LittleEconomicTask
     {
         DateTime DefaultReBuyingValue = Convert.ToDateTime("12 Apr 2002");
         
-        Control[] RateSpeedGrowthContorls;
         public Form1()
         {
             InitializeComponent();
             PickRate.Items.Add("ConstantRate");
-            PickRate.Items.Add("ExponentialRate");
-            RateSpeedGrowthContorls = new Control[] { SpeedRateHeader, SpeedRateHelper, PickSpeed };
+            PickRate.Items.Add("DifferentRate");
             PickRate.SelectedIndex = 0;
         }
 
         decimal PickStartValue { get { return PickStart.Value / 1000; } }
-        double PickSpeedValue { get { return (double)PickSpeed.Value / 1000; } }
         decimal Discount { get { return DiscountBox.Value / 100; } }
 
         private void CalcButton_Click(object sender, EventArgs e)
@@ -40,18 +37,17 @@ namespace LittleEconomicTask
                 Discount,
                 PickStartValue);
             else
-                provider = new ExponentialRateValueProvider(
+                provider = new DifferentRateValueProvider(
                 StartTime.Value,
                 EndTime.Value,
                 AmountBox.Value,
                 (int)MaturityBox.Value,
                 Discount,
-                PickStartValue,
-                PickSpeedValue
+                PickStartValue
                 );
 
             var t = provider.GetValue();
-            ResultBox.Text = "1: " + t.Item1.ToString() + ", \n2: " + t.Item2.ToString();
+            ResultBox.Text = string.Format("1: {0:0.00000}; \n2: {1:0.00000};" ,t.Item1, t.Item2);
 
         }
 
@@ -66,8 +62,6 @@ namespace LittleEconomicTask
 
         private void PickRate_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (var el in RateSpeedGrowthContorls)
-                el.Enabled = (PickRate.SelectedIndex == 1);
         }
     }
 }

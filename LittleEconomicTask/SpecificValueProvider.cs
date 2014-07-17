@@ -23,17 +23,18 @@ namespace LittleEconomicTask
             RateValue = rateValue;
             Amount = amount;
         }
-        public Tuple<decimal, decimal> GetValue()
+        virtual public Tuple<decimal, decimal> GetValue()
         {
             //return new Tuple<decimal, decimal>(2m, 3m);
             return MyFunctionalLibrary.Solution.CalcProfits(
                 new Bond(
                     IssuanceTime,
+                    Maturity,
+                    Amount,
                     RateFactory
                 ),
                 ReBuyTime,
-                Discount,
-                Amount
+                Discount
                 );
         }
     }
@@ -47,14 +48,14 @@ namespace LittleEconomicTask
                   discount,
                   rateValue)
         {
-            RateFactory = new ConstantRateFactory(Maturity, RateValue);
+            RateFactory = new ConstantRateFactory(RateValue);
         }
     }
 
-    class ExponentialRateValueProvider : SpecificValueProvider, IValueProvider
+    class DifferentRateValueProvider : SpecificValueProvider, IValueProvider
     {
         protected readonly double RateSpeedGrowth;
-        public ExponentialRateValueProvider(DateTime issuanceTime, DateTime reBuy, decimal amount, int maturity, decimal discount, decimal rateValue, double rateSpeedGrowth)
+        public DifferentRateValueProvider(DateTime issuanceTime, DateTime reBuy, decimal amount, int maturity, decimal discount, decimal rateValue)
             : base(issuanceTime,
                   reBuy,
                   amount,
@@ -62,8 +63,7 @@ namespace LittleEconomicTask
                   discount,
                   rateValue)
         {
-            RateSpeedGrowth = rateSpeedGrowth;
-            RateFactory = new MyFunctionalLibrary.ExponentialRateFactory(Maturity, RateValue, RateSpeedGrowth);
+            RateFactory = new DifferentRateFactory(rateValue);
         }
     }
 }
